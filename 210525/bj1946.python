@@ -17,8 +17,5 @@ for i in range(T):
         if Max > people[key]:
             Max = people[key]
             count += 1
-    # for k in range(1,N+1):
-    #     if Max > people[k]:
-    #         Max = people[k]
-    #         count += 1
+
     print(count)
