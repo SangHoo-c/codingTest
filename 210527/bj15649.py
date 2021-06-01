@@ -1,3 +1,4 @@
+# 백트래킹의 정석
 n, m = map(int, input().split())
 
 vis = [0] * (n+1)       # 방문 여부 확인 
