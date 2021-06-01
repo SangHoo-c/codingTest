@@ -27,24 +27,11 @@ def rec(i, j, L):
 
     elif L > 2:
         L_ = L // 2
-
-        a = rec(i, j, L_)
-        b = rec(i, j + L_, L_)
-        C = rec(i + L_, j, L_)
-        d = rec(i + L_, j + L_, L_)
-
-        if a:
-            return a
-        if b:
-            return b
-        if C:
-            return C
-        if d:
-            return d
-
-    else:
-        print("wrong input")
-        return 0
+        rec(i, j, L_)
+        rec(i, j + L_, L_)
+        rec(i + L_, j, L_)
+        rec(i + L_, j + L_, L_)
 
 
-print(rec(0, 0, 2 ** N))
+rec(0, 0, 2**N)
+print(cnt)
