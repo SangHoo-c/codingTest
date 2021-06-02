@@ -30,7 +30,7 @@ def rec(i, j, l):
                 w_cnt += 1
                 block.append(0)
             else:
-                print("error code #1. wrong input image. ")
+                # print("error code #1. wrong input image. ")
                 continue
 
     if b_cnt == l ** 2:
@@ -46,7 +46,8 @@ def rec(i, j, l):
         print(')', end='')
         return
     else:
-        print("error code #2. check your image array. ")
+        # print("error code #2. check your image array. ")
+        continue
 
     # 2. divide
     print('(', end='')
