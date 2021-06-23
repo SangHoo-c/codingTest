@@ -1,4 +1,4 @@
-# knapsack proble. 
+# knapsack problem. 
 # index 처리가 너무 까다로워서 시간이 오래걸렸다. 
 # 고정적인 idea 이니, 알아놓을것. 
 
