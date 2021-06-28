@@ -1,4 +1,3 @@
-import copy
 import sys
 from collections import deque
 
@@ -9,7 +8,7 @@ N, M, V = map(int, sys.stdin.readline().split(" "))
 
 # 인접 행렬 구현 (나중에 해보기)
 # 인접 리스트 구현
-graph_init = {i: deque() for i in range(1, N + 1)}
+graph = {i: deque() for i in range(1, N + 1)}
 
 # 인접 리스트의 경우, 그냥, 하면 된다.
 visited = set()
@@ -17,24 +16,23 @@ visited_2 = set()
 
 for _ in range(M):
     v, l = map(int, sys.stdin.readline().split(" "))
-    graph_init[v].append(l)
-    graph_init[l].append(v)
+    graph[v].append(l)
+    graph[l].append(v)
+    # 문제에서 linked list 는 단방향이 아닌, 양방향으로 주어졌기 때문에 모두 양방향 처리를 해줘야한다. 
+    # 이후 이를 해야만 이후 탐색에서 제대로된 탐색이 작동한다. 
+    
     # graph.update({v:l})
     # 해당 문법은 Key 가 존재하는 경우, value 를 업데이트 하고, key 가 없으면, 새로 추가한다.
 
 # deque 정렬
-for key in graph_init:
-    graph_init[key] = deque(sorted(list(graph_init[key])))
-
-# graph_copy = graph_init
-graph_copy = copy.deepcopy(graph_init)
+for key in graph:
+    graph[key] = deque(sorted(list(graph[key])))
 
 result1 = []
 result2 = []
 
 
-# 재귀를 통한 깊이우선탐색 
-def dfs(idx, graph=graph_init):
+def dfs(idx):
     visited.add(idx)
     result1.append(idx)
     for _node in graph[idx]:
@@ -43,8 +41,7 @@ def dfs(idx, graph=graph_init):
             dfs(_node)
 
 
-# bfs queue 를 이용한 넓이우선탐색 
-def bfs(idx, graph=graph_copy):
+def bfs(idx):
     visited_2.add(idx)
     result2.append(idx)
     _queue = deque()
@@ -57,7 +54,7 @@ def bfs(idx, graph=graph_copy):
                 result2.append(_node)
                 _queue.append(_node)
 
-
+print(graph)
 dfs(V)
 bfs(V)
 print(*result1)
