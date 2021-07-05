@@ -15,9 +15,13 @@ for i in range(N):
     dic[_input[i]] = 1
 
 for i in range(M):
-    try:
-        if dic[_check[i]] == 1:
-            print(1)
-    except KeyError:
+#     try:
+#         if dic[_check[i]] == 1:
+#             print(1)
+#     except KeyError:
+    if _check[i] in dic:
+        print(1)
+    else:
         print(0)
+
 
