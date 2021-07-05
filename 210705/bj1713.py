@@ -8,27 +8,28 @@ N = int(input())
 W = int(input())
 num = list(map(int, input().split(" ")))
 
-# key : 후보자 id
-# value : [추천수 , 들어온 순서]
-photo = dict()
-for i in range(W):
-    if num[i] in photo:
-        photo[num[i]][0] += 1
-    else:
-        if len(photo) < N:
-            photo[num[i]] = [1, i]
+# key : 학생 id
+# value : [추천수 , 입력 순번]
+r = {}
+for i in range(len(num)):
+    if num[i] not in r:
+        if len(r) < N:
+            r[num[i]] = [1, i]
         else:
-            del_list = sorted(photo.items(), key=lambda x: (x[1][0], x[1][1]))
-            del_key = del_list[0][0]
-            print(del_list[0])
-            del (photo[del_key])
-            photo[num[i]] = [1, i]
+            # print(r.items())    # 체크해보기
+            _r = sorted(r.items(), key=lambda x: (x[1][0], x[1][1]))
+            del_key = _r[0][0]
+            del (r[del_key])
+            r[num[i]] = [1, i]
+    else:
+        r[num[i]][0] += 1
 
-ans_list = list(sorted(photo.keys()))
-answer = str(ans_list[0])
-for i in ans_list[1:]:
-    answer += " " + str(i)
-print(answer)
+result = []
+for res in r.keys():
+    result.append(res)
+
+_final = sorted(result, key=lambda x: x)
+print(*_final)
 
 
 
