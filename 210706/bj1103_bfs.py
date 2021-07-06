@@ -1,3 +1,10 @@
+# 최대 depth 는 정해져 있지만,
+# 다음 step 으로 이동하면 매차수 path 가 4배씩 증가하게 된다.
+# 따라서 n * m 이 최대라고 한다면, 4^(n * m) 만큼 경우의 수가 발생할 수 있다.
+# 
+# 따라서 dfs 로 현재까지 가능한 max 값을 DP 에 저장하고, 다음 dfs 로 이동하는 구조로 짜야한다. 
+
+
 import sys
 from collections import deque
 sys.setrecursionlimit(10**6)
