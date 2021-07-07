@@ -14,6 +14,20 @@ B = list(map(int, sys.stdin.readline().split(" ")))
 
 def make_comb(arr, N):
     _result = defaultdict(int)
+
+    # 1. 불가능 풀이 (본래 풀이)
+    # for _arr_l in range(1, N + 1):
+    #     for j in range(N):
+    #         _key = 0
+    #         if j + _arr_l <= N:
+    #             for x in range(j, j + _arr_l):
+    #                 _key += arr[x]
+    #         if not _key:
+    #             continue
+    #         _result[_key] = _result.get(_key, 0) + 1
+    #         # _result[_key] += 1
+
+    # 2. 가능한 풀이 (개선된 풀이)
     for i in range(N):
         for j in range(i, N):
             _result[sum(arr[i:j + 1])] += 1
@@ -24,6 +38,17 @@ def make_comb(arr, N):
 def main():
     dict_a = make_comb(A, n)
     dict_b = make_comb(B, m)
+
+    # 1번도 가능 (본래 풀이)
+    # _count = 0
+    # for _b in dict_b.items():
+    #     t = T - _b[0]
+    #     _a_val = dict_a.get(t, 0)
+    #     if _a_val:
+    #         _count += _a_val * _b[1]
+    # print(_count)
+
+    # 2 번도 가능 (개선된 풀이)
     answer = 0
 
     for key in dict_a.keys():
