@@ -1,6 +1,6 @@
 # 집배원 한상덕
 # 1. 투포인터를 사용하여 가능한 높이 pair 를 찾는다.
-# 2. 찾은 높이 pair 를 bfs 에 넣어서 가능한지 체크한다,
+# 2. 찾은 높이 pair 를 bfs 에 넣어서 가능한지 체크한다.
 
 import sys
 from collections import deque
