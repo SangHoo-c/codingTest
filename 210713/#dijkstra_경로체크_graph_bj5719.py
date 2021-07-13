@@ -7,6 +7,8 @@
 # A노드와 B노드를 잇는 간선 (A, B)가 최단 경로에 속하는지 보는 방법은
 # distance(start, A) + distance(A, B) + distance(B, end) == 최단경로
 
+# Ref. https://chinpa.tistory.com/63
+
 import sys, heapq
 from collections import deque
 
