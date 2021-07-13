@@ -35,7 +35,7 @@ def dfs(c, depth):
         _parent[n][0] = c  # 상하 직속 부모자식 관계 저장
         dfs(n, depth + 1)
 
-
+# 2^1, 2^2, ... , 2^20 까지 거슬러 올라갔을때 parent 정보 저장하는 함수 
 def set_parent():
     dfs(1, 0)
     for i in range(1, LOG):
