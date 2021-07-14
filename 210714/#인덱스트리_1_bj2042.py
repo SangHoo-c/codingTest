@@ -2,7 +2,7 @@ import sys
 
 
 # i 번째 수까지 누적합을 계산 하는 함수
-def prefix_sum(i):
+def _sum(i):
     result = 0
     while i > 0:
         result += tree[i]
@@ -17,11 +17,6 @@ def update(i, dif):
     while i <= N:
         tree[i] += dif
         i += (i & -i)
-
-
-# start 부터 end 까지 구간 합을 계산하는 함수
-def interval_sum(start, end):
-    return prefix_sum(end) - prefix_sum(start - 1)
 
 
 if __name__ == '__main__':
@@ -44,4 +39,5 @@ if __name__ == '__main__':
             update(b, c - arr[b])  # 바뀐 크기 c - arr[b] 적용
             arr[b] = c
         else:
-            print(interval_sum(b, c))
+            # b ~ c 구간 합 구하기 
+            print(_sum(c) - _sum(b-1))
