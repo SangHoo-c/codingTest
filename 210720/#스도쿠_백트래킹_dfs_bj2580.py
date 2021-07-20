@@ -26,10 +26,14 @@ def promising(x, y):
 
     x //= 3
     y //= 3
-    for i in range(3):
-        for j in range(3):
-            if sudoku[3 * x + i][3 * y + i] in candidate:
-                candidate.remove(sudoku[x + i][y + i])
+    # for i in range(3):
+    #     for j in range(3):
+    #         if sudoku[3 * x + i][3 * y + i] in candidate:
+    #             candidate.remove(sudoku[3 * x + i][3 * y + i])
+    for p in range(x * 3, (x + 1) * 3):
+        for q in range(y * 3, (y + 1) * 3):
+            if sudoku[p][q] in candidate:
+                candidate.remove(sudoku[p][q])
 
     return candidate
 
