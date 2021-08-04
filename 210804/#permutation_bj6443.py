@@ -10,7 +10,7 @@ for _ in range(N):
     s_len = len(s)
 
 
-    def nCr():
+    def per():
         if len(arr) == s_len:
             for p in arr:
                 print(p, end="")
@@ -21,7 +21,7 @@ for _ in range(N):
             if visited[i] == 0 and (i == 0 or s[i - 1] != s[i] or visited[i - 1]):
                 arr.append(s[i])
                 visited[i] = 1
-                nCr()
+                per()
                 arr.pop()
                 visited[i] = 0
 
