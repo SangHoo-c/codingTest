@@ -27,3 +27,18 @@ for _ in range(N):
 
 
     nCr()
+
+    
+    
+    """
+1
+abc
+
+abc
+acb
+bac
+bca
+cab
+cba
+    
+    """
